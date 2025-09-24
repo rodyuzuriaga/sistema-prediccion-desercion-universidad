@@ -24,11 +24,11 @@ scipy>=1.11.0
 python-dateutil>=2.8.2
 faker>=19.0.0
 fpdf>=1.7.2
+reportlab>=3.6.0
 
 # Para desarrollo y testing
 pytest>=7.4.0
 python-dotenv>=1.0.0
 
-# Opcionales para extensiones futuras
 # databricks-sql-connector>=2.0.0
 # transformers>=4.30.0
