@@ -325,38 +325,58 @@ def mostrar_formulas_matematicas():
         st.caption("*Donde σ es función sigmoide*")
         st.caption("*Altman (1968) - Credit scoring*")
         
-        st.markdown("**2. Tasa de Retención Individual**")
+        st.markdown("**2. Distancia de Mahalanobis**")
         st.latex(r'''
-        \text{Retención} = \frac{N_{\text{continuantes}}}{N_{\text{iniciales}}}
+        D^2 = (x-\mu)^T \Sigma^{-1} (x-\mu)
+        ''')
+        st.caption("*Mahalanobis (1936)*")
+    
+    with st.sidebar.expander("Modelos de Supervivencia", expanded=False):
+        st.markdown("**3. Tasa de Retención Individual**")
+        st.latex(r'''
+        \text{Retención} = f(\text{créditos acumulados}, \text{ciclo actual})
         ''')
         st.caption("*Tinto, V. (1993)*")
     
     with st.sidebar.expander("Análisis de Aprendizaje", expanded=False):
-        st.markdown("**3. Entropía Académica**")
+        st.markdown("**4. Entropía Académica**")
         st.latex(r'''
         H(X) = -\sum_{i=1}^{n} p(x_i) \log_2 p(x_i)
         ''')
         st.caption("*Shannon, C. (1948)*")
     
     with st.sidebar.expander("Engagement & Momentum", expanded=False):
-        st.markdown("**4. Índice de Engagement (PCA)**")
+        st.markdown("**5. Índice de Engagement (PCA)**")
         st.latex(r'''
         E = \text{Norm}(\text{PC}_1(\mathbf{X}))
         ''')
         st.caption("*Análisis de componentes principales*")
         
-        st.markdown("**5. Momentum Académico**")
+        st.markdown("**6. Momentum Académico**")
         st.latex(r'''
         m_t = \alpha g_t + (1-\alpha) m_{t-1}
         ''')
         st.caption("*Holt-Winters smoothing*")
     
     with st.sidebar.expander("Análisis del Perfil", expanded=False):
-        st.markdown("**6. Vulnerabilidad Financiera**")
+        st.markdown("**7. Vulnerabilidad Financiera**")
         st.latex(r'''
         V_t = \sum_{k=0}^{K} \lambda (1-\lambda)^k d_{t-k}
         ''')
         st.caption("*EWMA credit scoring*")
+        
+        st.markdown("**8. Persistencia de Asistencia**")
+        st.latex(r'''
+        P(\text{continuidad}) = f(\text{estados previos})
+        ''')
+        st.caption("*Cadenas de Markov simplificadas*")
+    
+    with st.sidebar.expander("Modelos Predictivos", expanded=False):
+        st.markdown("**9. Receptividad a Intervención**")
+        st.latex(r'''
+        R = \text{Propensity Score Matching}
+        ''')
+        st.caption("*Rosenbaum & Rubin (1983)*")
     
 def aplicar_formulas_estudiante(estudiante):
     """Aplica las fórmulas matemáticas a un estudiante específico"""
