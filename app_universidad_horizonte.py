@@ -312,66 +312,64 @@ PROFESSIONAL_CSS = """
 st.markdown(PROFESSIONAL_CSS, unsafe_allow_html=True)
 
 def mostrar_formulas_matematicas():
-    """Muestra las fórmulas matemáticas implementadas en el sidebar"""
+    """Muestra las fórmulas matemáticas avanzadas en el sidebar"""
     st.sidebar.markdown("---")
-    st.sidebar.markdown("### Algoritmos Implementados")
-    st.sidebar.markdown("*8 modelos matemáticos aplicados*")
+    st.sidebar.markdown("### Fórmulas Matemáticas")
+    st.sidebar.markdown("*Referencias académicas*")
     
-    with st.sidebar.expander("Score de Riesgo Compuesto", expanded=False):
-        st.markdown("**Fórmula:** \( R = \sigma\left(\sum_{i=1}^{n} w_i \cdot \tilde{x}_i \right) \)")
-        st.caption("*Autor: Basado en Altman (1968) - Credit scoring*")
-        st.caption("*Sirve matemáticamente: Función sigmoide para mapear valores lineales a probabilidades (0-1)*")
-        st.caption("*En la aplicación: Calcula riesgo global ponderando promedio (40%), asistencia (30%), pagos (30%)*")
-        st.caption("*Finalidad: Identificar estudiantes en riesgo de deserción con score interpretable*")
+    with st.sidebar.expander("Métricas de Riesgo", expanded=False):
+        st.markdown("**1. Score de Riesgo Compuesto**")
+        st.latex(r'''
+        R = \sigma\left(\sum_{i=1}^{n} w_i \cdot \tilde{x}_i \right)
+        ''')
+        st.caption("*Donde σ es función sigmoide*")
+        st.caption("*Altman (1968) - Credit scoring*")
+        
+        st.markdown("**2. Distancia de Mahalanobis**")
+        st.latex(r'''
+        D^2 = (x-\mu)^T \Sigma^{-1} (x-\mu)
+        ''')
+        st.caption("*Mahalanobis (1936)*")
     
-    with st.sidebar.expander("Tasa de Retención Individual", expanded=False):
-        st.markdown("**Fórmula:** Modelo de progreso relativo vs esperado")
-        st.caption("*Autor: Adaptado de Tinto (1993)*")
-        st.caption("*Sirve matemáticamente: Ratio de créditos acumulados vs esperados con penalización por ciclo*")
-        st.caption("*En la aplicación: Evalúa progreso académico real vs teórico por ciclo*")
-        st.caption("*Finalidad: Detectar atrasos académicos que predicen deserción*")
+    with st.sidebar.expander("Modelos de Supervivencia", expanded=False):
+        st.markdown("**3. Tasa de Retención**")
+        st.latex(r'''
+        \text{Retención} = \frac{N_{\text{continuantes}}}{N_{\text{iniciales}}}
+        ''')
+        st.caption("*Tinto, V. (1993)*")
     
-    with st.sidebar.expander("Entropía Académica", expanded=False):
-        st.markdown("**Fórmula:** \( H(X) = -\sum_{i=1}^{n} p(x_i) \log_2 p(x_i) \)")
-        st.caption("*Autor: Shannon (1948)*")
-        st.caption("*Sirve matemáticamente: Mide incertidumbre/variabilidad en distribución de probabilidades*")
-        st.caption("*En la aplicación: Calcula variabilidad en rendimiento académico simulado*")
-        st.caption("*Finalidad: Identificar inconsistencia en desempeño que indica riesgo*")
+    with st.sidebar.expander("Análisis de Aprendizaje", expanded=False):
+        st.markdown("**4. Entropía Académica**")
+        st.latex(r'''
+        H(X) = -\sum_{i=1}^{n} p(x_i) \log_2 p(x_i)
+        ''')
+        st.caption("*Shannon, C. (1948)*")
     
-    with st.sidebar.expander("Momentum Académico", expanded=False):
-        st.markdown("**Fórmula:** \( m_t = \alpha g_t + (1-\alpha) m_{t-1} \)")
-        st.caption("*Autor: Holt-Winters smoothing (1960)*")
-        st.caption("*Sirve matemáticamente: Suavizado exponencial para detectar tendencias*")
-        st.caption("*En la aplicación: Evalúa aceleración/desaceleración en promedio académico*")
-        st.caption("*Finalidad: Predecir trayectoria futura del rendimiento estudiantil*")
+    with st.sidebar.expander("Engagement & Momentum", expanded=False):
+        st.markdown("**5. Índice de Engagement (PCA)**")
+        st.latex(r'''
+        E = \text{Norm}(\text{PC}_1(\mathbf{X}))
+        ''')
+        st.caption("*Análisis de componentes principales*")
+        
+        st.markdown("**6. Momentum Académico**")
+        st.latex(r'''
+        m_t = \alpha g_t + (1-\alpha) m_{t-1}
+        ''')
+        st.caption("*Holt-Winters smoothing*")
     
-    with st.sidebar.expander("Engagement Score (PCA)", expanded=False):
-        st.markdown("**Fórmula:** \( E = \text{Norm}(\text{PC}_1(\mathbf{X})) \)")
-        st.caption("*Autor: Hotelling (1933)*")
-        st.caption("*Sirve matemáticamente: Reducción dimensional para combinar variables correlacionadas*")
-        st.caption("*En la aplicación: Sintetiza horas LMS, interacciones y accesos en índice único*")
-        st.caption("*Finalidad: Medir involucramiento estudiantil con plataformas educativas*")
-    
-    with st.sidebar.expander("Vulnerabilidad Financiera (EWMA)", expanded=False):
-        st.markdown("**Fórmula:** \( V_t = \sum_{k=0}^{K} \lambda (1-\lambda)^k d_{t-k} \)")
-        st.caption("*Autor: RiskMetrics (1996)*")
-        st.caption("*Sirve matemáticamente: Media ponderada exponencialmente para datos recientes*")
-        st.caption("*En la aplicación: Evalúa historial de pagos pendientes con mayor peso en eventos recientes*")
-        st.caption("*Finalidad: Detectar deterioro financiero progresivo que afecta permanencia*")
-    
-    with st.sidebar.expander("Persistencia de Asistencia", expanded=False):
-        st.markdown("**Fórmula:** Modelo de cadenas de Markov simplificado")
-        st.caption("*Autor: Markov (1906)*")
-        st.caption("*Sirve matemáticamente: Probabilidad de estados futuros basada en estados actuales*")
-        st.caption("*En la aplicación: Estima probabilidad de mantener patrones de asistencia*")
-        st.caption("*Finalidad: Predecir continuidad en hábitos de participación académica*")
-    
-    with st.sidebar.expander("Receptividad a Intervención", expanded=False):
-        st.markdown("**Fórmula:** Propensity score matching adaptado")
-        st.caption("*Autor: Rosenbaum & Rubin (1983)*")
-        st.caption("*Sirve matemáticamente: Estimación de probabilidad de tratamiento condicional*")
-        st.caption("*En la aplicación: Evalúa qué tan receptivo será estudiante a intervenciones específicas*")
-        st.caption("*Finalidad: Priorizar estudiantes más propensos a responder positivamente a ayuda*")
+    with st.sidebar.expander("Análisis del Perfil", expanded=False):
+        st.markdown("**7. Eficiencia de Aprendizaje**")
+        st.latex(r'''
+        E = \frac{\Delta \text{score}}{\Delta \text{horas} + \epsilon}
+        ''')
+        st.caption("*Newell & Rosenbloom (1981)*")
+        
+        st.markdown("**8. Vulnerabilidad Financiera**")
+        st.latex(r'''
+        V_t = \sum_{k=0}^{K} \lambda (1-\lambda)^k d_{t-k}
+        ''')
+        st.caption("*EWMA credit scoring*")
     
 def aplicar_formulas_estudiante(estudiante):
     """Aplica las fórmulas matemáticas a un estudiante específico"""
@@ -2103,7 +2101,7 @@ def mostrar_analisis_individual(estudiantes):
         if factores_criticos:
             df_factores = pd.DataFrame(factores_criticos)
             
-            # Mostrar como tabla
+            # Mostrar como tabla profesional
             st.dataframe(
                 df_factores,
                 column_config={
@@ -2120,7 +2118,7 @@ def mostrar_analisis_individual(estudiantes):
         else:
             st.success("No se detectaron factores críticos para este estudiante")
         
-        # Mostrar fórmulas
+        # Mostrar fórmulas aplicadas de forma más profesional
         st.markdown("### **Metodología Matemática Aplicada**")
         with st.expander("Ver detalles de algoritmos utilizados"):
             col1, col2 = st.columns(2)
